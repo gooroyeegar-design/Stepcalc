@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="setup_subtitle">你的每日步行伙伴</string>
+    <string name="setup_title">设置你的理想一天</string>
+    <string name="setup_description">选择目标，然后输入当前身体数据。</string>
+    <string name="ideal_daily_steps">每日理想步数</string>
+    <string name="current_weight">当前体重</string>
+    <string name="height">身高</string>
+    <string name="hint_steps">10,000</string>
+    <string name="hint_weight">例如 60</string>
+    <string name="hint_height">例如 165</string>
+    <string name="get_started">开始使用</string>
+    <string name="valid_values">请输入有效数值。</string>
+    <string name="target_range">1,000–100,000</string>
+    <string name="steps_per_day_target"> 步/天目标</string>
+    <string name="start_moving">开始行动</string>
+    <string name="step_by_step">一步一步来。</string>
+    <string name="today">今天</string>
+    <string name="today_steps">%1$,d 步</string>
+    <string name="goal_steps">目标：%1$,d 步</string>
+    <string name="your_progress">你的进度</string>
+    <string name="steps">步数</string>
+    <string name="calories">卡路里</string>
+    <string name="loss_equivalent">减重等值</string>
+    <string name="target">目标</string>
+    <string name="calories_value">%1$.1f 千卡</string>
+    <string name="kg_value">%1$.3f 千克</string>
+    <string name="live_tracking">实时追踪</string>
+    <string name="live_tracking_body">即使你正在使用其他应用，步数也会通过通知栏持续追踪。</string>
+    <string name="no_step_sensor">此设备没有步数传感器，因此无法进行实时追踪。</string>
+    <string name="permission_needed">需要身体活动识别权限才能计算步数。</string>
+    <string name="notification_channel_live">实时步数</string>
+    <string name="notification_channel_live_description">StepCalc 实时步数、卡路里和目标进度</string>
+    <string name="notification_channel_daily">每日激励</string>
+    <string name="notification_stats">👟 %1$,d    🔥 %2$.1f</string>
+    <string name="notification_stats_large">👟 %1$,d    🔥 %2$.1f 千卡</string>
+    <string name="notification_goal">🎯 %1$.0f%%  •  %2$,d / %3$,d 步</string>
+    <string name="notification_goal_large">🎯 %1$.0f%% / %2$,d 步</string>
+    <string name="daily_notification_title">StepCalc</string>
+    <string name="daily_nudge">今日动力</string>
+    <string name="open_app">打开 StepCalc</string>
+    <string name="open_arrow">→</string>
+    <string name="language_button">🌐 语言：中文</string>
+    <string name="choose_language">选择语言</string>
+    <string name="cancel">取消</string>
+</resources>
