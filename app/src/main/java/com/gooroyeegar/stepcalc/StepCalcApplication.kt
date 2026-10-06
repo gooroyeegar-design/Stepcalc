@@ -27,7 +27,8 @@ class StepCalcApplication : Application() {
                 val report = buildString {
                     appendLine("StepCalc crash report")
                     appendLine("Timestamp: $timestamp")
-                    appendLine("App version: ${BuildConfig.VERSION_NAME} (${BuildConfig.VERSION_CODE})")
+                    val packageInfo = packageManager.getPackageInfo(packageName, 0)
+                appendLine("App version: ${packageInfo.versionName}")
                     appendLine("Android: ${Build.VERSION.RELEASE} (API ${Build.VERSION.SDK_INT})")
                     appendLine("Device: ${Build.MANUFACTURER} ${Build.MODEL}")
                     appendLine("Thread: ${thread.name}")
