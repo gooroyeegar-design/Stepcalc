@@ -41,7 +41,7 @@
         android:layout_height="match_parent"
         android:contentDescription="@string/open_app"
         android:gravity="center"
-        android:text="→"
+        android:text="@string/open_arrow"
         android:textSize="24sp"
         android:textStyle="bold" />
 </LinearLayout>
