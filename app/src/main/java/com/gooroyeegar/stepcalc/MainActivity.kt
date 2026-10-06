@@ -9,13 +9,16 @@ import android.os.*
 import android.text.InputType
 import android.view.*
 import android.widget.*
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import java.util.Calendar
 import java.util.Locale
 
-class MainActivity : ComponentActivity() {
+class MainActivity : androidx.appcompat.app.AppCompatActivity() {
     private lateinit var goal: EditText
     private lateinit var weight: EditText
     private lateinit var height: EditText
@@ -65,6 +68,15 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        Log.d("StepCalcBoot", "permissions check")
+        val crashFile = java.io.File(filesDir, StepCalcApplication.CRASH_FILE)
+        if (crashFile.exists()) {
+            Log.d("StepCalcBoot", "crash report found; opening recovery screen")
+            startActivity(Intent(this, CrashReportActivity::class.java))
+            finish()
+            return
+        }
+        Log.d("StepCalcBoot", "database open: SharedPreferences (no database)")
         applySystemBars()
         if (!prefs.getBoolean("setup", false)) showSetup() else showDashboard()
     }
@@ -123,6 +135,29 @@ class MainActivity : ComponentActivity() {
             if (bold) typeface = android.graphics.Typeface.DEFAULT_BOLD
         }
 
+    private fun languageButton(): TextView =
+        tv(getString(R.string.language_button), 14f, cyanDark, true).apply {
+            gravity = Gravity.CENTER
+            background = rounded(infoBg, 16, infoBorder)
+            setOnClickListener { showLanguagePicker() }
+            contentDescription = getString(R.string.choose_language)
+        }
+
+    private fun showLanguagePicker() {
+        val tags = arrayOf("en", "ar", "fr", "es", "de", "it", "pt", "tr", "ru", "zh")
+        val names = resources.getStringArray(R.array.language_names)
+        val current = AppCompatDelegate.getApplicationLocales().get(0)?.language ?: "en"
+        val checked = tags.indexOf(current).coerceAtLeast(0)
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.choose_language))
+            .setSingleChoiceItems(names, checked) { dialog, which ->
+                AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(tags[which]))
+                dialog.dismiss()
+            }
+            .setNegativeButton(getString(R.string.cancel), null)
+            .show()
+    }
+
     private fun showSetup() {
         val scroll = ScrollView(this).apply {
             setBackgroundColor(bg)
@@ -135,6 +170,9 @@ class MainActivity : ComponentActivity() {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(20), dp(22), dp(20), dp(28))
         }
+        root.addView(languageButton(), LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, dp(44)
+        ).apply { bottomMargin = dp(10) })
 
         val hero = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
@@ -307,6 +345,9 @@ class MainActivity : ComponentActivity() {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(20), dp(22), dp(20), dp(28))
         }
+        root.addView(languageButton(), LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, dp(44)
+        ).apply { bottomMargin = dp(10) })
 
         val goalValue = prefs.getInt("goal", 10000)
         val hero = LinearLayout(this).apply {
@@ -395,13 +436,19 @@ class MainActivity : ComponentActivity() {
         ).apply { topMargin = dp(12) })
 
         scroll.addView(root)
+        Log.d("StepCalcBoot", "first UI render")
         setContentView(scroll)
 
         if (ContextCompat.checkSelfPermission(
                 this, Manifest.permission.ACTIVITY_RECOGNITION
             ) == PackageManager.PERMISSION_GRANTED
         ) {
-            ContextCompat.startForegroundService(this, Intent(this, StepService::class.java))
+            Log.d("StepCalcBoot", "service start")
+            try {
+                ContextCompat.startForegroundService(this, Intent(this, StepService::class.java))
+            } catch (t: Throwable) {
+                Log.e("StepCalcBoot", "service start failed", t)
+            }
         }
         refreshDashboardValues()
     }
