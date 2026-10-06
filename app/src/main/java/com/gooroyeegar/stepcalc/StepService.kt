@@ -70,39 +70,38 @@ class StepService : Service(), SensorEventListener {
 
         val total = e.values.firstOrNull() ?: return
         val savedDay = prefs.getString("day", null)
+        var lastTotal = prefs.getFloat("sensor_last", -1f)
+        var steps = prefs.getInt("steps", 0).coerceAtLeast(0)
 
         if (savedDay != today) {
             base = total
-            prefs.edit()
-                .putString("day", today)
-                .putString("timezone", ZoneId.systemDefault().id)
-                .putFloat("sensor_base", base)
-                .putInt("steps", 0)
-                .apply()
-        } else if (base < 0f) {
+            lastTotal = total
+            steps = 0
+        } else if (lastTotal < 0f) {
             base = prefs.getFloat("sensor_base", total)
+            lastTotal = prefs.getFloat("sensor_last", base)
         }
 
         // TYPE_STEP_COUNTER is defined as steps since the last device reboot.
-        // If it drops below our baseline, the phone rebooted (or the sensor reset).
-        // Keep today's accumulated steps and start a fresh sensor baseline.
-        if (total < base) {
+        // A reboot resets the sensor value. Keep today's accumulated steps,
+        // then start counting again from the new post-reboot sensor value.
+        if (lastTotal >= 0f && total < lastTotal) {
             base = total
-            prefs.edit().putFloat("sensor_base", base).apply()
+            lastTotal = total
         }
 
-        val steps = prefs.getInt("steps", 0).coerceAtLeast(0) +
-                maxOf(0, (total - base).toInt()) -
-                prefs.getInt("sensor_delta_applied", 0)
-        val safeSteps = maxOf(prefs.getInt("steps", 0), steps)
+        val delta = maxOf(0, (total - lastTotal).toInt())
+        steps += delta
+        lastTotal = total
+
         prefs.edit()
-            .putInt("steps", safeSteps)
-            .putInt("sensor_delta_applied", maxOf(0, (total - base).toInt()))
+            .putInt("steps", steps)
             .putFloat("sensor_base", base)
+            .putFloat("sensor_last", lastTotal)
             .putString("day", today)
             .putString("timezone", ZoneId.systemDefault().id)
             .apply()
-        update(safeSteps)
+        update(steps)
     }
 
     private fun update(steps: Int) {
