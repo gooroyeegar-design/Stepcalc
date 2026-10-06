@@ -8,30 +8,24 @@
     android:paddingTop="4dp"
     android:paddingEnd="2dp"
     android:paddingBottom="4dp">
-
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical"
         android:paddingEnd="8dp">
-
         <TextView
             android:id="@+id/notification_stats"
             style="@style/TextAppearance.Compat.Notification.Title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="👟 0    🔥 0.0 kcal"
             android:textStyle="bold" />
-
         <TextView
             android:id="@+id/notification_goal"
             style="@style/TextAppearance.Compat.Notification"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="🎯 0% of 10,000 steps" />
-
+            android:layout_marginTop="5dp" />
         <ProgressBar
             android:id="@+id/notification_progress"
             style="?android:attr/progressBarStyleHorizontal"
@@ -40,12 +34,12 @@
             android:layout_marginTop="7dp"
             android:progressDrawable="@drawable/notification_progress" />
     </LinearLayout>
-
     <TextView
         android:id="@+id/notification_open"
         style="@style/TextAppearance.Compat.Notification.Title"
         android:layout_width="46dp"
         android:layout_height="match_parent"
+        android:contentDescription="@string/open_app"
         android:gravity="center"
         android:text="→"
         android:textSize="28sp"
