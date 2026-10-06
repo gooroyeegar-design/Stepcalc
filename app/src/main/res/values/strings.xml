@@ -48,4 +48,11 @@
     <string name="zero">0</string>
     <string name="zero_kcal">0 kcal</string>
     <string name="zero_kg">0.000 kg</string>
+    <string name="language_button">🌐 Language: English</string>
+    <string name="choose_language">Choose language</string>
+    <string name="cancel">Cancel</string>
+    <string-array name="language_names">
+        <item>English</item><item>العربية</item><item>Français</item><item>Español</item><item>Deutsch</item>
+        <item>Italiano</item><item>Português</item><item>Türkçe</item><item>Русский</item><item>中文</item>
+    </string-array>
 </resources>
