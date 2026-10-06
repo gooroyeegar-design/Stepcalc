@@ -1,13 +1,16 @@
 package com.gooroyeegar.stepcalc
 
+import android.Manifest
 import android.app.*
 import android.content.*
+import android.content.pm.PackageManager
 import android.hardware.*
 import android.os.*
 import android.widget.RemoteViews
 import androidx.core.app.NotificationCompat
-import java.text.SimpleDateFormat
-import java.util.*
+import java.time.LocalDate
+import java.time.ZoneId
+import java.util.Locale
 
 class StepService : Service(), SensorEventListener {
     private lateinit var sensorManager: SensorManager
@@ -19,21 +22,35 @@ class StepService : Service(), SensorEventListener {
     override fun onCreate() {
         super.onCreate()
         createChannels()
-        startForeground(NOTIFICATION_ID, notification(prefs.getInt("steps", 0)))
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
         val counter = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER)
         if (counter != null) {
             detectorMode = false
-            sensorManager.registerListener(this, counter, SensorManager.SENSOR_DELAY_NORMAL)
+            prefs.edit().putBoolean("sensor_available", true).apply()
+            sensorManager.registerListener(this, counter, Sensor.SENSOR_DELAY_NORMAL)
         } else {
             val detector = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
             if (detector != null) {
                 detectorMode = true
-                sensorManager.registerListener(this, detector, SensorManager.SENSOR_DELAY_NORMAL)
+                prefs.edit().putBoolean("sensor_available", true).apply()
+                sensorManager.registerListener(this, detector, Sensor.SENSOR_DELAY_NORMAL)
+            } else {
+                prefs.edit().putBoolean("sensor_available", false).apply()
             }
         }
         scheduleDailyQuote()
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        if (Build.VERSION.SDK_INT >= 29 &&
+            checkSelfPermission(Manifest.permission.ACTIVITY_RECOGNITION) != PackageManager.PERMISSION_GRANTED
+        ) {
+            stopSelf()
+            return START_NOT_STICKY
+        }
+        startForeground(NOTIFICATION_ID, notification(prefs.getInt("steps", 0)))
+        return START_STICKY
     }
 
     override fun onSensorChanged(e: SensorEvent) {
@@ -43,28 +60,49 @@ class StepService : Service(), SensorEventListener {
             val savedDay = prefs.getString("day", today)
             val current = if (savedDay == today) prefs.getInt("steps", 0) else 0
             val steps = current + maxOf(1, e.values.firstOrNull()?.toInt() ?: 1)
-            prefs.edit().putString("day", today).putInt("steps", steps).apply()
+            prefs.edit()
+                .putString("day", today)
+                .putInt("steps", steps)
+                .apply()
             update(steps)
             return
         }
 
-        val total = e.values[0]
+        val total = e.values.firstOrNull() ?: return
         val savedDay = prefs.getString("day", null)
+
         if (savedDay != today) {
             base = total
-            prefs.edit().putString("day", today).putFloat("sensor_base", base).putInt("steps", 0).apply()
+            prefs.edit()
+                .putString("day", today)
+                .putString("timezone", ZoneId.systemDefault().id)
+                .putFloat("sensor_base", base)
+                .putInt("steps", 0)
+                .apply()
         } else if (base < 0f) {
             base = prefs.getFloat("sensor_base", total)
         }
 
+        // TYPE_STEP_COUNTER is defined as steps since the last device reboot.
+        // If it drops below our baseline, the phone rebooted (or the sensor reset).
+        // Keep today's accumulated steps and start a fresh sensor baseline.
         if (total < base) {
             base = total
-            prefs.edit().putFloat("sensor_base", base).putInt("steps", 0).apply()
+            prefs.edit().putFloat("sensor_base", base).apply()
         }
 
-        val steps = maxOf(0, (total - base).toInt())
-        prefs.edit().putInt("steps", steps).putFloat("sensor_base", base).putString("day", today).apply()
-        update(steps)
+        val steps = prefs.getInt("steps", 0).coerceAtLeast(0) +
+                maxOf(0, (total - base).toInt()) -
+                prefs.getInt("sensor_delta_applied", 0)
+        val safeSteps = maxOf(prefs.getInt("steps", 0), steps)
+        prefs.edit()
+            .putInt("steps", safeSteps)
+            .putInt("sensor_delta_applied", maxOf(0, (total - base).toInt()))
+            .putFloat("sensor_base", base)
+            .putString("day", today)
+            .putString("timezone", ZoneId.systemDefault().id)
+            .apply()
+        update(safeSteps)
     }
 
     private fun update(steps: Int) {
@@ -73,11 +111,11 @@ class StepService : Service(), SensorEventListener {
         val distanceKm = steps * (height * 0.413f / 100000f)
         val kcal = distanceKm * weight * 0.75f
         val kg = kcal / 7700f
-        val percent = prefs.getInt("goal", 10000).let { goal ->
-            if (goal > 0) (steps.toFloat() / goal * 100f).coerceIn(0f, 100f) else 0f
-        }
+        val goal = prefs.getInt("goal", 10000)
+        val percent = if (goal > 0) (steps.toFloat() / goal * 100f).coerceIn(0f, 100f) else 0f
         prefs.edit().putFloat("kcal", kcal).putFloat("kg", kg).apply()
-        getSystemService(NotificationManager::class.java).notify(NOTIFICATION_ID, notification(steps, kcal, percent))
+        getSystemService(NotificationManager::class.java)
+            .notify(NOTIFICATION_ID, notification(steps, kcal, percent))
     }
 
     private fun notification(steps: Int, kcal: Float = 0f, percent: Float = 0f): Notification {
@@ -100,22 +138,22 @@ class StepService : Service(), SensorEventListener {
         )
 
         val small = RemoteViews(packageName, R.layout.notification_small).apply {
-            setTextViewText(R.id.notification_stats, String.format(Locale.US, "👟 %,d    🔥 %.1f", steps, displayKcal))
-            setTextViewText(R.id.notification_goal, String.format(Locale.US, "🎯 %.0f%%  •  %,d / %,d steps", goalPercent, steps, goal))
+            setTextViewText(R.id.notification_stats, getString(R.string.notification_stats, steps, displayKcal))
+            setTextViewText(R.id.notification_goal, getString(R.string.notification_goal, goalPercent, steps, goal))
             setProgressBar(R.id.notification_progress, 100, goalPercent.toInt(), false)
             setOnClickPendingIntent(R.id.notification_open, openPending)
         }
         val large = RemoteViews(packageName, R.layout.notification_large).apply {
-            setTextViewText(R.id.notification_stats, String.format(Locale.US, "👟 %,d    🔥 %.1f kcal", steps, displayKcal))
-            setTextViewText(R.id.notification_goal, String.format(Locale.US, "🎯 %.0f%% of %,d steps", goalPercent, goal))
+            setTextViewText(R.id.notification_stats, getString(R.string.notification_stats_large, steps, displayKcal))
+            setTextViewText(R.id.notification_goal, getString(R.string.notification_goal_large, goalPercent, goal))
             setProgressBar(R.id.notification_progress, 100, goalPercent.toInt(), false)
             setOnClickPendingIntent(R.id.notification_open, openPending)
         }
 
         return NotificationCompat.Builder(this, channelId)
-            .setSmallIcon(R.drawable.ic_launcher)
-            .setContentTitle("StepCalc")
-            .setContentText(String.format(Locale.US, "👟 %,d steps  •  🔥 %.1f kcal", steps, displayKcal))
+            .setSmallIcon(R.drawable.ic_stat_steps)
+            .setContentTitle(getString(R.string.app_name))
+            .setContentText(getString(R.string.notification_stats_large, steps, displayKcal))
             .setStyle(NotificationCompat.DecoratedCustomViewStyle())
             .setCustomContentView(small)
             .setCustomBigContentView(large)
@@ -132,13 +170,21 @@ class StepService : Service(), SensorEventListener {
     private fun createChannels() {
         val nm = getSystemService(NotificationManager::class.java)
         nm.createNotificationChannel(
-            NotificationChannel(channelId, "Live steps", NotificationManager.IMPORTANCE_LOW).apply {
-                description = "Live StepCalc steps, calories and goal progress"
+            NotificationChannel(
+                channelId,
+                getString(R.string.notification_channel_live),
+                NotificationManager.IMPORTANCE_LOW
+            ).apply {
+                description = getString(R.string.notification_channel_live_description)
                 setShowBadge(false)
             }
         )
         nm.createNotificationChannel(
-            NotificationChannel("daily", "Daily motivation", NotificationManager.IMPORTANCE_DEFAULT)
+            NotificationChannel(
+                "daily",
+                getString(R.string.notification_channel_daily),
+                NotificationManager.IMPORTANCE_DEFAULT
+            )
         )
     }
 
@@ -148,20 +194,21 @@ class StepService : Service(), SensorEventListener {
             this, 99, Intent(this, QuoteReceiver::class.java),
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
-        val c = Calendar.getInstance().apply {
-            set(Calendar.HOUR_OF_DAY, 9)
-            set(Calendar.MINUTE, 0)
-            set(Calendar.SECOND, 0)
-            set(Calendar.MILLISECOND, 0)
-            if (timeInMillis <= System.currentTimeMillis()) add(Calendar.DAY_OF_YEAR, 1)
+        val c = java.util.Calendar.getInstance().apply {
+            set(java.util.Calendar.HOUR_OF_DAY, 9)
+            set(java.util.Calendar.MINUTE, 0)
+            set(java.util.Calendar.SECOND, 0)
+            set(java.util.Calendar.MILLISECOND, 0)
+            if (timeInMillis <= System.currentTimeMillis()) add(java.util.Calendar.DAY_OF_YEAR, 1)
         }
         am.setInexactRepeating(AlarmManager.RTC_WAKEUP, c.timeInMillis, AlarmManager.INTERVAL_DAY, intent)
     }
 
-    private fun dayKey() = SimpleDateFormat("yyyy-MM-dd", Locale.US).format(Date())
+    private fun dayKey(): String =
+        LocalDate.now(ZoneId.systemDefault()).toString() + "|" + ZoneId.systemDefault().id
 
     override fun onDestroy() {
-        sensorManager.unregisterListener(this)
+        if (::sensorManager.isInitialized) sensorManager.unregisterListener(this)
         super.onDestroy()
     }
 
