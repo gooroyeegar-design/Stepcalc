@@ -38,6 +38,7 @@
     <string name="notification_goal">🎯 %.0f%%  •  %,d / %,d steps</string>
     <string name="notification_goal_large">🎯 %.0f%% of %,d steps</string>
     <string name="daily_notification_title">StepCalc</string>
+    <string name="daily_nudge">TODAY'S NUDGE</string>
     <string-array name="daily_quotes">
         <item>One step at a time even when the day feels busy. Keep going.</item>
         <item>Keep your rhythm while you give yourself some fresh air. Keep going.</item>
