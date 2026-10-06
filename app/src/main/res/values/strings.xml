@@ -40,6 +40,14 @@
     <string name="daily_notification_title">StepCalc</string>
     <string name="daily_nudge">TODAY'S NUDGE</string>
     <string name="open_app">Open StepCalc</string>
+    <string name="open_arrow">→</string>
+    <string name="icon_steps">👟</string>
+    <string name="icon_calories">🔥</string>
+    <string name="icon_loss">⚖</string>
+    <string name="icon_target">🎯</string>
+    <string name="zero">0</string>
+    <string name="zero_kcal">0 kcal</string>
+    <string name="zero_kg">0.000 kg</string>
     <string-array name="daily_quotes">
         <item>One step at a time even when the day feels busy. Keep going.</item>
         <item>Keep your rhythm while you give yourself some fresh air. Keep going.</item>
