@@ -334,25 +334,25 @@ class MainActivity : ComponentActivity() {
 
         val row1 = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
         row1.addView(
-            statCard("👟", getString(R.string.steps), "0").also { stepsValue = it.findViewWithTag("value") },
+            statCard(getString(R.string.icon_steps), getString(R.string.steps), getString(R.string.zero)).also { stepsValue = it.findViewWithTag("value") },
             LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { rightMargin = dp(7) }
         )
         row1.addView(
-            statCard("🔥", getString(R.string.calories), "0 kcal").also { kcalValue = it.findViewWithTag("value") },
+            statCard(getString(R.string.icon_calories), getString(R.string.calories), getString(R.string.zero_kcal)).also { kcalValue = it.findViewWithTag("value") },
             LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply { leftMargin = dp(7) }
         )
         grid.addView(row1)
 
         val row2 = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
         row2.addView(
-            statCard("⚖", getString(R.string.loss_equivalent), "0.000 kg").also { kgValue = it.findViewWithTag("value") },
+            statCard(getString(R.string.icon_loss), getString(R.string.loss_equivalent), getString(R.string.zero_kg)).also { kgValue = it.findViewWithTag("value") },
             LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply {
                 rightMargin = dp(7)
                 topMargin = dp(12)
             }
         )
         row2.addView(
-            statCard("🎯", getString(R.string.target), String.format(Locale.US, "%,d", goalValue))
+            statCard(getString(R.string.icon_target), getString(R.string.target), String.format(Locale.US, "%,d", goalValue))
                 .also { targetValue = it.findViewWithTag("value") },
             LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f).apply {
                 leftMargin = dp(7)
