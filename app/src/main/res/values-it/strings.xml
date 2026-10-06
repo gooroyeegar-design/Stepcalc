@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="setup_subtitle">Il tuo compagno quotidiano per camminare</string>
+    <string name="setup_title">Imposta la tua giornata ideale</string>
+    <string name="setup_description">Scegli il tuo obiettivo, poi inserisci le tue misure attuali.</string>
+    <string name="ideal_daily_steps">Passi giornalieri ideali</string>
+    <string name="current_weight">Peso attuale</string>
+    <string name="height">Altezza</string>
+    <string name="hint_steps">10.000</string>
+    <string name="hint_weight">es. 60</string>
+    <string name="hint_height">es. 165</string>
+    <string name="get_started">INIZIA</string>
+    <string name="valid_values">Inserisci valori validi.</string>
+    <string name="target_range">1.000–100.000</string>
+    <string name="steps_per_day_target"> passi/giorno</string>
+    <string name="start_moving">Iniziamo a muoverci</string>
+    <string name="step_by_step">Un passo alla volta.</string>
+    <string name="today">OGGI</string>
+    <string name="today_steps">%1$,d passi</string>
+    <string name="goal_steps">Obiettivo: %1$,d passi</string>
+    <string name="your_progress">I tuoi progressi</string>
+    <string name="steps">Passi</string>
+    <string name="calories">Calorie</string>
+    <string name="loss_equivalent">Equiv. perdita</string>
+    <string name="target">Obiettivo</string>
+    <string name="calories_value">%1$.1f kcal</string>
+    <string name="kg_value">%1$.3f kg</string>
+    <string name="live_tracking">MONITORAGGIO LIVE</string>
+    <string name="live_tracking_body">I tuoi passi restano attivi nella barra delle notifiche anche mentre usi altre app.</string>
+    <string name="no_step_sensor">Questo dispositivo non dispone di un sensore di passi, quindi il monitoraggio live non è disponibile.</string>
+    <string name="permission_needed">È necessaria l’autorizzazione al riconoscimento dell’attività per contare i passi.</string>
+    <string name="notification_channel_live">Passi live</string>
+    <string name="notification_channel_live_description">Passi, calorie e progresso dell’obiettivo StepCalc</string>
+    <string name="notification_channel_daily">Motivazione quotidiana</string>
+    <string name="notification_stats">👟 %1$,d    🔥 %2$.1f</string>
+    <string name="notification_stats_large">👟 %1$,d    🔥 %2$.1f kcal</string>
+    <string name="notification_goal">🎯 %1$.0f%%  •  %2$,d / %3$,d passi</string>
+    <string name="notification_goal_large">🎯 %1$.0f%% di %2$,d passi</string>
+    <string name="daily_notification_title">StepCalc</string>
+    <string name="daily_nudge">SPINTA DI OGGI</string>
+    <string name="open_app">Apri StepCalc</string>
+    <string name="open_arrow">→</string>
+    <string name="language_button">🌐 Lingua: Italiano</string>
+    <string name="choose_language">Scegli lingua</string>
+    <string name="cancel">Annulla</string>
+</resources>
