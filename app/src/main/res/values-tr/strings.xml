@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="setup_subtitle">Günlük yürüyüş arkadaşın</string>
+    <string name="setup_title">İdeal gününü ayarla</string>
+    <string name="setup_description">Hedefini seç, ardından mevcut vücut ölçülerini gir.</string>
+    <string name="ideal_daily_steps">İdeal günlük adım</string>
+    <string name="current_weight">Mevcut kilo</string>
+    <string name="height">Boy</string>
+    <string name="hint_steps">10.000</string>
+    <string name="hint_weight">örn. 60</string>
+    <string name="hint_height">örn. 165</string>
+    <string name="get_started">BAŞLA</string>
+    <string name="valid_values">Lütfen geçerli değerler gir.</string>
+    <string name="target_range">1.000–100.000</string>
+    <string name="steps_per_day_target"> adım/gün hedefi</string>
+    <string name="start_moving">Hadi yürüyelim</string>
+    <string name="step_by_step">Adım adım.</string>
+    <string name="today">BUGÜN</string>
+    <string name="today_steps">%1$,d adım</string>
+    <string name="goal_steps">Hedef: %1$,d adım</string>
+    <string name="your_progress">İlerlemen</string>
+    <string name="steps">Adım</string>
+    <string name="calories">Kalori</string>
+    <string name="loss_equivalent">Kayıp eşd.</string>
+    <string name="target">Hedef</string>
+    <string name="calories_value">%1$.1f kcal</string>
+    <string name="kg_value">%1$.3f kg</string>
+    <string name="live_tracking">CANLI TAKİP</string>
+    <string name="live_tracking_body">Başka uygulamaları kullanırken bile adımların bildirim çubuğunda aktif kalır.</string>
+    <string name="no_step_sensor">Bu cihazda adım sensörü yok, bu nedenle canlı takip kullanılamıyor.</string>
+    <string name="permission_needed">Adımlarını saymak için fiziksel aktivite izni gerekiyor.</string>
+    <string name="notification_channel_live">Canlı adımlar</string>
+    <string name="notification_channel_live_description">Canlı StepCalc adımları, kalorileri ve hedef ilerlemesi</string>
+    <string name="notification_channel_daily">Günlük motivasyon</string>
+    <string name="notification_stats">👟 %1$,d    🔥 %2$.1f</string>
+    <string name="notification_stats_large">👟 %1$,d    🔥 %2$.1f kcal</string>
+    <string name="notification_goal">🎯 %1$.0f%%  •  %2$,d / %3$,d adım</string>
+    <string name="notification_goal_large">🎯 %1$.0f%% / %2$,d adım</string>
+    <string name="daily_notification_title">StepCalc</string>
+    <string name="daily_nudge">BUGÜNÜN İTİCİ GÜCÜ</string>
+    <string name="open_app">StepCalc’i aç</string>
+    <string name="open_arrow">→</string>
+    <string name="language_button">🌐 Dil: Türkçe</string>
+    <string name="choose_language">Dil seç</string>
+    <string name="cancel">İptal</string>
+</resources>
