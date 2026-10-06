@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="setup_subtitle">رفيقك اليومي للمشي</string>
+    <string name="setup_title">اضبط يومك المثالي</string>
+    <string name="setup_description">اختر هدفك ثم أدخل قياسات جسمك الحالية.</string>
+    <string name="ideal_daily_steps">الخطوات اليومية المثالية</string>
+    <string name="current_weight">الوزن الحالي</string>
+    <string name="height">الطول</string>
+    <string name="hint_steps">10,000</string>
+    <string name="hint_weight">مثال: 60</string>
+    <string name="hint_height">مثال: 165</string>
+    <string name="get_started">ابدأ الآن</string>
+    <string name="valid_values">يرجى إدخال قيم صحيحة.</string>
+    <string name="target_range">1,000–100,000</string>
+    <string name="steps_per_day_target"> هدف خطوة/اليوم</string>
+    <string name="start_moving">هيا نتحرك</string>
+    <string name="step_by_step">خطوة بخطوة.</string>
+    <string name="today">اليوم</string>
+    <string name="today_steps">%1$,d خطوة</string>
+    <string name="goal_steps">الهدف: %1$,d خطوة</string>
+    <string name="your_progress">تقدمك</string>
+    <string name="steps">الخطوات</string>
+    <string name="calories">السعرات</string>
+    <string name="loss_equivalent">ما يعادل الفقد</string>
+    <string name="target">الهدف</string>
+    <string name="calories_value">%1$.1f سعرة</string>
+    <string name="kg_value">%1$.3f كغ</string>
+    <string name="live_tracking">التتبع المباشر</string>
+    <string name="live_tracking_body">تبقى خطواتك نشطة عبر شريط الإشعارات حتى أثناء استخدام تطبيقات أخرى.</string>
+    <string name="no_step_sensor">هذا الجهاز لا يوفر مستشعر خطوات، لذلك لا يتوفر التتبع المباشر.</string>
+    <string name="permission_needed">يلزم إذن التعرف على النشاط لعد خطواتك.</string>
+    <string name="notification_channel_live">الخطوات المباشرة</string>
+    <string name="notification_channel_live_description">خطوات وسعرات وتقدم هدف StepCalc مباشرة</string>
+    <string name="notification_channel_daily">تحفيز يومي</string>
+    <string name="notification_stats">👟 %1$,d    🔥 %2$.1f</string>
+    <string name="notification_stats_large">👟 %1$,d    🔥 %2$.1f سعرة</string>
+    <string name="notification_goal">🎯 %1$.0f%%  •  %2$,d / %3$,d خطوة</string>
+    <string name="notification_goal_large">🎯 %1$.0f%% من %2$,d خطوة</string>
+    <string name="daily_notification_title">StepCalc</string>
+    <string name="daily_nudge">دفعة اليوم</string>
+    <string name="open_app">فتح StepCalc</string>
+    <string name="open_arrow">→</string>
+    <string name="language_button">🌐 اللغة: العربية</string>
+    <string name="choose_language">اختر اللغة</string>
+    <string name="cancel">إلغاء</string>
+</resources>
