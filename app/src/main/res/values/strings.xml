@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StepCalc</string>
+    <string name="setup_subtitle">Your daily walking companion</string>
+    <string name="setup_title">Set up your ideal day</string>
+    <string name="setup_description">Choose your target, then enter your current body measurements.</string>
+    <string name="ideal_daily_steps">Ideal daily steps</string>
+    <string name="current_weight">Current weight</string>
+    <string name="height">Height</string>
+    <string name="hint_steps">10,000</string>
+    <string name="hint_weight">e.g. 60</string>
+    <string name="hint_height">e.g. 165</string>
+    <string name="get_started">GET STARTED</string>
+    <string name="valid_values">Please enter valid values.</string>
+    <string name="target_range">1,000–100,000</string>
+    <string name="steps_per_day_target"> steps/day target</string>
+    <string name="start_moving">Let's get moving</string>
+    <string name="step_by_step">Step by step.</string>
+    <string name="today">TODAY</string>
+    <string name="today_steps">%,d steps</string>
+    <string name="goal_steps">Goal: %,d steps</string>
+    <string name="your_progress">Your progress</string>
+    <string name="steps">Steps</string>
+    <string name="calories">Calories</string>
+    <string name="loss_equivalent">Loss eq.</string>
+    <string name="target">Target</string>
+    <string name="calories_value">%.1f kcal</string>
+    <string name="kg_value">%.3f kg</string>
+    <string name="live_tracking">LIVE TRACKING</string>
+    <string name="live_tracking_body">Your steps stay active through the notification bar, even while you use other apps.</string>
+    <string name="no_step_sensor">This device does not provide a step sensor, so live step tracking is unavailable.</string>
+    <string name="permission_needed">Activity recognition permission is needed to count your steps.</string>
+    <string name="notification_channel_live">Live steps</string>
+    <string name="notification_channel_live_description">Live StepCalc steps, calories and goal progress</string>
+    <string name="notification_channel_daily">Daily motivation</string>
+    <string name="notification_stats">👟 %,d    🔥 %.1f</string>
+    <string name="notification_stats_large">👟 %,d    🔥 %.1f kcal</string>
+    <string name="notification_goal">🎯 %.0f%%  •  %,d / %,d steps</string>
+    <string name="notification_goal_large">🎯 %.0f%% of %,d steps</string>
+    <string name="daily_notification_title">StepCalc</string>
+    <string-array name="daily_quotes">
+        <item>One step at a time even when the day feels busy. Keep going.</item>
+        <item>Keep your rhythm while you give yourself some fresh air. Keep going.</item>
+        <item>Today\'s walk matters because showing up is part of the win. Keep going.</item>
+        <item>Small progress counts as you keep your promise to yourself. Keep going.</item>
+        <item>Your next step is enough with one comfortable step. Keep going.</item>
+        <item>Keep moving forward while you focus only on the next step. Keep going.</item>
+        <item>A little movement goes far because every bit of movement matters. Keep going.</item>
+        <item>Consistency is your superpower because progress is measured in moments too. Keep going.</item>
+        <item>Your body notices every step before you decide you are done. Keep going.</item>
+        <item>You are building momentum and give your body a little kindness. Keep going.</item>
+        <item>Every walk adds up because tomorrow is built from today. Keep going.</item>
+        <item>Make room for movement without needing to be perfect. Keep going.</item>
+        <item>Your future self is cheering and let progress happen naturally. Keep going.</item>
+        <item>Progress does not need to be loud and make a little space for yourself. Keep going.</item>
+        <item>You already started and let your own pace be enough. Keep going.</item>
+        <item>Keep the promise you made because consistency compounds. Keep going.</item>
+        <item>Today is another chance without comparing your pace to anyone else. Keep going.</item>
+        <item>Momentum starts with motion and trust the process. Keep going.</item>
+        <item>Your goal is closer now even when motivation is low. Keep going.</item>
+        <item>Keep choosing yourself as you build a habit that lasts. Keep going.</item>
+        <item>Movement can change a day as you turn effort into momentum. Keep going.</item>
+        <item>The next minute can count without waiting for the perfect moment. Keep going.</item>
+        <item>Your effort has value and let the minutes add up. Keep going.</item>
+        <item>Walk at your own pace because small wins become routines. Keep going.</item>
+        <item>Steady beats perfect while you keep today\'s goal in sight. Keep going.</item>
+        <item>You can make today count even when the day feels busy. Keep going.</item>
+        <item>Your routine is getting stronger while you give yourself some fresh air. Keep going.</item>
+        <item>Keep showing up because showing up is part of the win. Keep going.</item>
+        <item>One more lap is still progress as you keep your promise to yourself. Keep going.</item>
+        <item>Your steps are adding up with one comfortable step. Keep going.</item>
+        <item>A calmer pace still moves you while you focus only on the next step. Keep going.</item>
+        <item>Keep the habit alive because every bit of movement matters. Keep going.</item>
+        <item>Your progress is yours because progress is measured in moments too. Keep going.</item>
+        <item>A short walk is never wasted before you decide you are done. Keep going.</item>
+        <item>You are closer than yesterday and give your body a little kindness. Keep going.</item>
+        <item>One step at a time because tomorrow is built from today. Keep going.</item>
+        <item>Keep your rhythm without needing to be perfect. Keep going.</item>
+        <item>Today\'s walk matters and let progress happen naturally. Keep going.</item>
+        <item>Small progress counts and make a little space for yourself. Keep going.</item>
+        <item>Your next step is enough and let your own pace be enough. Keep going.</item>
+        <item>Keep moving forward because consistency compounds. Keep going.</item>
+        <item>A little movement goes far without comparing your pace to anyone else. Keep going.</item>
+        <item>Consistency is your superpower and trust the process. Keep going.</item>
+        <item>Your body notices every step even when motivation is low. Keep going.</item>
+        <item>You are building momentum as you build a habit that lasts. Keep going.</item>
+        <item>Every walk adds up as you turn effort into momentum. Keep going.</item>
+        <item>Make room for movement without waiting for the perfect moment. Keep going.</item>
+        <item>Your future self is cheering and let the minutes add up. Keep going.</item>
+        <item>Progress does not need to be loud because small wins become routines. Keep going.</item>
+        <item>You already started while you keep today\'s goal in sight. Keep going.</item>
+        <item>Keep the promise you made even when the day feels busy. Keep going.</item>
+        <item>Today is another chance while you give yourself some fresh air. Keep going.</item>
+        <item>Momentum starts with motion because showing up is part of the win. Keep going.</item>
+        <item>Your goal is closer now as you keep your promise to yourself. Keep going.</item>
+        <item>Keep choosing yourself with one comfortable step. Keep going.</item>
+        <item>Movement can change a day while you focus only on the next step. Keep going.</item>
+        <item>The next minute can count because every bit of movement matters. Keep going.</item>
+        <item>Your effort has value because progress is measured in moments too. Keep going.</item>
+        <item>Walk at your own pace before you decide you are done. Keep going.</item>
+        <item>Steady beats perfect and give your body a little kindness. Keep going.</item>
+        <item>You can make today count because tomorrow is built from today. Keep going.</item>
+        <item>Your routine is getting stronger without needing to be perfect. Keep going.</item>
+        <item>Keep showing up and let progress happen naturally. Keep going.</item>
+        <item>One more lap is still progress and make a little space for yourself. Keep going.</item>
+        <item>Your steps are adding up and let your own pace be enough. Keep going.</item>
+        <item>A calmer pace still moves you because consistency compounds. Keep going.</item>
+        <item>Keep the habit alive without comparing your pace to anyone else. Keep going.</item>
+        <item>Your progress is yours and trust the process. Keep going.</item>
+        <item>A short walk is never wasted even when motivation is low. Keep going.</item>
+        <item>You are closer than yesterday as you build a habit that lasts. Keep going.</item>
+        <item>One step at a time as you turn effort into momentum. Keep going.</item>
+        <item>Keep your rhythm without waiting for the perfect moment. Keep going.</item>
+        <item>Today\'s walk matters and let the minutes add up. Keep going.</item>
+        <item>Small progress counts because small wins become routines. Keep going.</item>
+        <item>Your next step is enough while you keep today\'s goal in sight. Keep going.</item>
+        <item>Keep moving forward even when the day feels busy. Keep going.</item>
+        <item>A little movement goes far while you give yourself some fresh air. Keep going.</item>
+        <item>Consistency is your superpower because showing up is part of the win. Keep going.</item>
+        <item>Your body notices every step as you keep your promise to yourself. Keep going.</item>
+        <item>You are building momentum with one comfortable step. Keep going.</item>
+        <item>Every walk adds up while you focus only on the next step. Keep going.</item>
+        <item>Make room for movement because every bit of movement matters. Keep going.</item>
+        <item>Your future self is cheering because progress is measured in moments too. Keep going.</item>
+        <item>Progress does not need to be loud before you decide you are done. Keep going.</item>
+        <item>You already started and give your body a little kindness. Keep going.</item>
+        <item>Keep the promise you made because tomorrow is built from today. Keep going.</item>
+        <item>Today is another chance without needing to be perfect. Keep going.</item>
+        <item>Momentum starts with motion and let progress happen naturally. Keep going.</item>
+        <item>Your goal is closer now and make a little space for yourself. Keep going.</item>
+        <item>Keep choosing yourself and let your own pace be enough. Keep going.</item>
+        <item>Movement can change a day because consistency compounds. Keep going.</item>
+        <item>The next minute can count without comparing your pace to anyone else. Keep going.</item>
+        <item>Your effort has value and trust the process. Keep going.</item>
+        <item>Walk at your own pace even when motivation is low. Keep going.</item>
+        <item>Steady beats perfect as you build a habit that lasts. Keep going.</item>
+        <item>You can make today count as you turn effort into momentum. Keep going.</item>
+        <item>Your routine is getting stronger without waiting for the perfect moment. Keep going.</item>
+        <item>Keep showing up and let the minutes add up. Keep going.</item>
+        <item>One more lap is still progress because small wins become routines. Keep going.</item>
+        <item>Your steps are adding up while you keep today\'s goal in sight. Keep going.</item>
+        <item>A calmer pace still moves you even when the day feels busy. Keep going.</item>
+        <item>Keep the habit alive while you give yourself some fresh air. Keep going.</item>
+        <item>Your progress is yours because showing up is part of the win. Keep going.</item>
+        <item>A short walk is never wasted as you keep your promise to yourself. Keep going.</item>
+        <item>You are closer than yesterday with one comfortable step. Keep going.</item>
+        <item>One step at a time while you focus only on the next step. Keep going.</item>
+        <item>Keep your rhythm because every bit of movement matters. Keep going.</item>
+        <item>Today\'s walk matters because progress is measured in moments too. Keep going.</item>
+        <item>Small progress counts before you decide you are done. Keep going.</item>
+        <item>Your next step is enough and give your body a little kindness. Keep going.</item>
+        <item>Keep moving forward because tomorrow is built from today. Keep going.</item>
+        <item>A little movement goes far without needing to be perfect. Keep going.</item>
+        <item>Consistency is your superpower and let progress happen naturally. Keep going.</item>
+        <item>Your body notices every step and make a little space for yourself. Keep going.</item>
+        <item>You are building momentum and let your own pace be enough. Keep going.</item>
+        <item>Every walk adds up because consistency compounds. Keep going.</item>
+        <item>Make room for movement without comparing your pace to anyone else. Keep going.</item>
+        <item>Your future self is cheering and trust the process. Keep going.</item>
+        <item>Progress does not need to be loud even when motivation is low. Keep going.</item>
+        <item>You already started as you build a habit that lasts. Keep going.</item>
+        <item>Keep the promise you made as you turn effort into momentum. Keep going.</item>
+        <item>Today is another chance without waiting for the perfect moment. Keep going.</item>
+        <item>Momentum starts with motion and let the minutes add up. Keep going.</item>
+        <item>Your goal is closer now because small wins become routines. Keep going.</item>
+        <item>Keep choosing yourself while you keep today\'s goal in sight. Keep going.</item>
+        <item>Movement can change a day even when the day feels busy. Keep going.</item>
+        <item>The next minute can count while you give yourself some fresh air. Keep going.</item>
+        <item>Your effort has value because showing up is part of the win. Keep going.</item>
+        <item>Walk at your own pace as you keep your promise to yourself. Keep going.</item>
+        <item>Steady beats perfect with one comfortable step. Keep going.</item>
+        <item>You can make today count while you focus only on the next step. Keep going.</item>
+        <item>Your routine is getting stronger because every bit of movement matters. Keep going.</item>
+        <item>Keep showing up because progress is measured in moments too. Keep going.</item>
+        <item>One more lap is still progress before you decide you are done. Keep going.</item>
+        <item>Your steps are adding up and give your body a little kindness. Keep going.</item>
+        <item>A calmer pace still moves you because tomorrow is built from today. Keep going.</item>
+        <item>Keep the habit alive without needing to be perfect. Keep going.</item>
+        <item>Your progress is yours and let progress happen naturally. Keep going.</item>
+        <item>A short walk is never wasted and make a little space for yourself. Keep going.</item>
+        <item>You are closer than yesterday and let your own pace be enough. Keep going.</item>
+        <item>One step at a time because consistency compounds. Keep going.</item>
+        <item>Keep your rhythm without comparing your pace to anyone else. Keep going.</item>
+        <item>Today\'s walk matters and trust the process. Keep going.</item>
+        <item>Small progress counts even when motivation is low. Keep going.</item>
+        <item>Your next step is enough as you build a habit that lasts. Keep going.</item>
+        <item>Keep moving forward as you turn effort into momentum. Keep going.</item>
+        <item>A little movement goes far without waiting for the perfect moment. Keep going.</item>
+        <item>Consistency is your superpower and let the minutes add up. Keep going.</item>
+        <item>Your body notices every step because small wins become routines. Keep going.</item>
+        <item>You are building momentum while you keep today\'s goal in sight. Keep going.</item>
+        <item>Every walk adds up even when the day feels busy. Keep going.</item>
+        <item>Make room for movement while you give yourself some fresh air. Keep going.</item>
+        <item>Your future self is cheering because showing up is part of the win. Keep going.</item>
+        <item>Progress does not need to be loud as you keep your promise to yourself. Keep going.</item>
+        <item>You already started with one comfortable step. Keep going.</item>
+        <item>Keep the promise you made while you focus only on the next step. Keep going.</item>
+        <item>Today is another chance because every bit of movement matters. Keep going.</item>
+        <item>Momentum starts with motion because progress is measured in moments too. Keep going.</item>
+        <item>Your goal is closer now before you decide you are done. Keep going.</item>
+        <item>Keep choosing yourself and give your body a little kindness. Keep going.</item>
+        <item>Movement can change a day because tomorrow is built from today. Keep going.</item>
+        <item>The next minute can count without needing to be perfect. Keep going.</item>
+        <item>Your effort has value and let progress happen naturally. Keep going.</item>
+        <item>Walk at your own pace and make a little space for yourself. Keep going.</item>
+        <item>Steady beats perfect and let your own pace be enough. Keep going.</item>
+        <item>You can make today count because consistency compounds. Keep going.</item>
+        <item>Your routine is getting stronger without comparing your pace to anyone else. Keep going.</item>
+        <item>Keep showing up and trust the process. Keep going.</item>
+        <item>One more lap is still progress even when motivation is low. Keep going.</item>
+        <item>Your steps are adding up as you build a habit that lasts. Keep going.</item>
+        <item>A calmer pace still moves you as you turn effort into momentum. Keep going.</item>
+        <item>Keep the habit alive without waiting for the perfect moment. Keep going.</item>
+        <item>Your progress is yours and let the minutes add up. Keep going.</item>
+        <item>A short walk is never wasted because small wins become routines. Keep going.</item>
+        <item>You are closer than yesterday while you keep today\'s goal in sight. Keep going.</item>
+        <item>One step at a time even when the day feels busy. Keep going.</item>
+        <item>Keep your rhythm while you give yourself some fresh air. Keep going.</item>
+        <item>Today\'s walk matters because showing up is part of the win. Keep going.</item>
+        <item>Small progress counts as you keep your promise to yourself. Keep going.</item>
+        <item>Your next step is enough with one comfortable step. Keep going.</item>
+        <item>Keep moving forward while you focus only on the next step. Keep going.</item>
+        <item>A little movement goes far because every bit of movement matters. Keep going.</item>
+        <item>Consistency is your superpower because progress is measured in moments too. Keep going.</item>
+        <item>Your body notices every step before you decide you are done. Keep going.</item>
+        <item>You are building momentum and give your body a little kindness. Keep going.</item>
+        <item>Every walk adds up because tomorrow is built from today. Keep going.</item>
+        <item>Make room for movement without needing to be perfect. Keep going.</item>
+        <item>Your future self is cheering and let progress happen naturally. Keep going.</item>
+        <item>Progress does not need to be loud and make a little space for yourself. Keep going.</item>
+        <item>You already started and let your own pace be enough. Keep going.</item>
+        <item>Keep the promise you made because consistency compounds. Keep going.</item>
+        <item>Today is another chance without comparing your pace to anyone else. Keep going.</item>
+        <item>Momentum starts with motion and trust the process. Keep going.</item>
+        <item>Your goal is closer now even when motivation is low. Keep going.</item>
+        <item>Keep choosing yourself as you build a habit that lasts. Keep going.</item>
+        <item>Movement can change a day as you turn effort into momentum. Keep going.</item>
+        <item>The next minute can count without waiting for the perfect moment. Keep going.</item>
+        <item>Your effort has value and let the minutes add up. Keep going.</item>
+        <item>Walk at your own pace because small wins become routines. Keep going.</item>
+        <item>Steady beats perfect while you keep today\'s goal in sight. Keep going.</item>
+        <item>You can make today count even when the day feels busy. Keep going.</item>
+        <item>Your routine is getting stronger while you give yourself some fresh air. Keep going.</item>
+        <item>Keep showing up because showing up is part of the win. Keep going.</item>
+        <item>One more lap is still progress as you keep your promise to yourself. Keep going.</item>
+        <item>Your steps are adding up with one comfortable step. Keep going.</item>
+        <item>A calmer pace still moves you while you focus only on the next step. Keep going.</item>
+        <item>Keep the habit alive because every bit of movement matters. Keep going.</item>
+        <item>Your progress is yours because progress is measured in moments too. Keep going.</item>
+        <item>A short walk is never wasted before you decide you are done. Keep going.</item>
+        <item>You are closer than yesterday and give your body a little kindness. Keep going.</item>
+        <item>One step at a time because tomorrow is built from today. Keep going.</item>
+        <item>Keep your rhythm without needing to be perfect. Keep going.</item>
+        <item>Today\'s walk matters and let progress happen naturally. Keep going.</item>
+        <item>Small progress counts and make a little space for yourself. Keep going.</item>
+        <item>Your next step is enough and let your own pace be enough. Keep going.</item>
+        <item>Keep moving forward because consistency compounds. Keep going.</item>
+        <item>A little movement goes far without comparing your pace to anyone else. Keep going.</item>
+        <item>Consistency is your superpower and trust the process. Keep going.</item>
+        <item>Your body notices every step even when motivation is low. Keep going.</item>
+        <item>You are building momentum as you build a habit that lasts. Keep going.</item>
+        <item>Every walk adds up as you turn effort into momentum. Keep going.</item>
+        <item>Make room for movement without waiting for the perfect moment. Keep going.</item>
+        <item>Your future self is cheering and let the minutes add up. Keep going.</item>
+        <item>Progress does not need to be loud because small wins become routines. Keep going.</item>
+        <item>You already started while you keep today\'s goal in sight. Keep going.</item>
+        <item>Keep the promise you made even when the day feels busy. Keep going.</item>
+        <item>Today is another chance while you give yourself some fresh air. Keep going.</item>
+        <item>Momentum starts with motion because showing up is part of the win. Keep going.</item>
+        <item>Your goal is closer now as you keep your promise to yourself. Keep going.</item>
+        <item>Keep choosing yourself with one comfortable step. Keep going.</item>
+        <item>Movement can change a day while you focus only on the next step. Keep going.</item>
+        <item>The next minute can count because every bit of movement matters. Keep going.</item>
+        <item>Your effort has value because progress is measured in moments too. Keep going.</item>
+        <item>Walk at your own pace before you decide you are done. Keep going.</item>
+        <item>Steady beats perfect and give your body a little kindness. Keep going.</item>
+        <item>You can make today count because tomorrow is built from today. Keep going.</item>
+        <item>Your routine is getting stronger without needing to be perfect. Keep going.</item>
+        <item>Keep showing up and let progress happen naturally. Keep going.</item>
+        <item>One more lap is still progress and make a little space for yourself. Keep going.</item>
+        <item>Your steps are adding up and let your own pace be enough. Keep going.</item>
+        <item>A calmer pace still moves you because consistency compounds. Keep going.</item>
+        <item>Keep the habit alive without comparing your pace to anyone else. Keep going.</item>
+        <item>Your progress is yours and trust the process. Keep going.</item>
+        <item>A short walk is never wasted even when motivation is low. Keep going.</item>
+        <item>You are closer than yesterday as you build a habit that lasts. Keep going.</item>
+        <item>One step at a time as you turn effort into momentum. Keep going.</item>
+        <item>Keep your rhythm without waiting for the perfect moment. Keep going.</item>
+        <item>Today\'s walk matters and let the minutes add up. Keep going.</item>
+        <item>Small progress counts because small wins become routines. Keep going.</item>
+        <item>Your next step is enough while you keep today\'s goal in sight. Keep going.</item>
+        <item>Keep moving forward even when the day feels busy. Keep going.</item>
+        <item>A little movement goes far while you give yourself some fresh air. Keep going.</item>
+        <item>Consistency is your superpower because showing up is part of the win. Keep going.</item>
+        <item>Your body notices every step as you keep your promise to yourself. Keep going.</item>
+        <item>You are building momentum with one comfortable step. Keep going.</item>
+        <item>Every walk adds up while you focus only on the next step. Keep going.</item>
+        <item>Make room for movement because every bit of movement matters. Keep going.</item>
+        <item>Your future self is cheering because progress is measured in moments too. Keep going.</item>
+        <item>Progress does not need to be loud before you decide you are done. Keep going.</item>
+        <item>You already started and give your body a little kindness. Keep going.</item>
+        <item>Keep the promise you made because tomorrow is built from today. Keep going.</item>
+        <item>Today is another chance without needing to be perfect. Keep going.</item>
+        <item>Momentum starts with motion and let progress happen naturally. Keep going.</item>
+        <item>Your goal is closer now and make a little space for yourself. Keep going.</item>
+        <item>Keep choosing yourself and let your own pace be enough. Keep going.</item>
+        <item>Movement can change a day because consistency compounds. Keep going.</item>
+        <item>The next minute can count without comparing your pace to anyone else. Keep going.</item>
+        <item>Your effort has value and trust the process. Keep going.</item>
+        <item>Walk at your own pace even when motivation is low. Keep going.</item>
+        <item>Steady beats perfect as you build a habit that lasts. Keep going.</item>
+        <item>You can make today count as you turn effort into momentum. Keep going.</item>
+        <item>Your routine is getting stronger without waiting for the perfect moment. Keep going.</item>
+        <item>Keep showing up and let the minutes add up. Keep going.</item>
+        <item>One more lap is still progress because small wins become routines. Keep going.</item>
+        <item>Your steps are adding up while you keep today\'s goal in sight. Keep going.</item>
+        <item>A calmer pace still moves you even when the day feels busy. Keep going.</item>
+        <item>Keep the habit alive while you give yourself some fresh air. Keep going.</item>
+        <item>Your progress is yours because showing up is part of the win. Keep going.</item>
+        <item>A short walk is never wasted as you keep your promise to yourself. Keep going.</item>
+        <item>You are closer than yesterday with one comfortable step. Keep going.</item>
+        <item>One step at a time while you focus only on the next step. Keep going.</item>
+        <item>Keep your rhythm because every bit of movement matters. Keep going.</item>
+        <item>Today\'s walk matters because progress is measured in moments too. Keep going.</item>
+        <item>Small progress counts before you decide you are done. Keep going.</item>
+        <item>Your next step is enough and give your body a little kindness. Keep going.</item>
+        <item>Keep moving forward because tomorrow is built from today. Keep going.</item>
+        <item>A little movement goes far without needing to be perfect. Keep going.</item>
+        <item>Consistency is your superpower and let progress happen naturally. Keep going.</item>
+        <item>Your body notices every step and make a little space for yourself. Keep going.</item>
+        <item>You are building momentum and let your own pace be enough. Keep going.</item>
+        <item>Every walk adds up because consistency compounds. Keep going.</item>
+        <item>Make room for movement without comparing your pace to anyone else. Keep going.</item>
+        <item>Your future self is cheering and trust the process. Keep going.</item>
+        <item>Progress does not need to be loud even when motivation is low. Keep going.</item>
+        <item>You already started as you build a habit that lasts. Keep going.</item>
+        <item>Keep the promise you made as you turn effort into momentum. Keep going.</item>
+        <item>Today is another chance without waiting for the perfect moment. Keep going.</item>
+        <item>Momentum starts with motion and let the minutes add up. Keep going.</item>
+        <item>Your goal is closer now because small wins become routines. Keep going.</item>
+        <item>Keep choosing yourself while you keep today\'s goal in sight. Keep going.</item>
+        <item>Movement can change a day even when the day feels busy. Keep going.</item>
+        <item>The next minute can count while you give yourself some fresh air. Keep going.</item>
+        <item>Your effort has value because showing up is part of the win. Keep going.</item>
+        <item>Walk at your own pace as you keep your promise to yourself. Keep going.</item>
+        <item>Steady beats perfect with one comfortable step. Keep going.</item>
+        <item>You can make today count while you focus only on the next step. Keep going.</item>
+        <item>Your routine is getting stronger because every bit of movement matters. Keep going.</item>
+        <item>Keep showing up because progress is measured in moments too. Keep going.</item>
+        <item>One more lap is still progress before you decide you are done. Keep going.</item>
+        <item>Your steps are adding up and give your body a little kindness. Keep going.</item>
+        <item>A calmer pace still moves you because tomorrow is built from today. Keep going.</item>
+        <item>Keep the habit alive without needing to be perfect. Keep going.</item>
+        <item>Your progress is yours and let progress happen naturally. Keep going.</item>
+        <item>A short walk is never wasted and make a little space for yourself. Keep going.</item>
+        <item>You are closer than yesterday and let your own pace be enough. Keep going.</item>
+        <item>One step at a time because consistency compounds. Keep going.</item>
+        <item>Keep your rhythm without comparing your pace to anyone else. Keep going.</item>
+        <item>Today\'s walk matters and trust the process. Keep going.</item>
+        <item>Small progress counts even when motivation is low. Keep going.</item>
+        <item>Your next step is enough as you build a habit that lasts. Keep going.</item>
+        <item>Keep moving forward as you turn effort into momentum. Keep going.</item>
+        <item>A little movement goes far without waiting for the perfect moment. Keep going.</item>
+        <item>Consistency is your superpower and let the minutes add up. Keep going.</item>
+        <item>Your body notices every step because small wins become routines. Keep going.</item>
+        <item>You are building momentum while you keep today\'s goal in sight. Keep going.</item>
+        <item>Every walk adds up even when the day feels busy. Keep going.</item>
+        <item>Make room for movement while you give yourself some fresh air. Keep going.</item>
+        <item>Your future self is cheering because showing up is part of the win. Keep going.</item>
+        <item>Progress does not need to be loud as you keep your promise to yourself. Keep going.</item>
+        <item>You already started with one comfortable step. Keep going.</item>
+        <item>Keep the promise you made while you focus only on the next step. Keep going.</item>
+        <item>Today is another chance because every bit of movement matters. Keep going.</item>
+        <item>Momentum starts with motion because progress is measured in moments too. Keep going.</item>
+        <item>Your goal is closer now before you decide you are done. Keep going.</item>
+        <item>Keep choosing yourself and give your body a little kindness. Keep going.</item>
+        <item>Movement can change a day because tomorrow is built from today. Keep going.</item>
+        <item>The next minute can count without needing to be perfect. Keep going.</item>
+        <item>Your effort has value and let progress happen naturally. Keep going.</item>
+        <item>Walk at your own pace and make a little space for yourself. Keep going.</item>
+        <item>Steady beats perfect and let your own pace be enough. Keep going.</item>
+        <item>You can make today count because consistency compounds. Keep going.</item>
+        <item>Your routine is getting stronger without comparing your pace to anyone else. Keep going.</item>
+        <item>Keep showing up and trust the process. Keep going.</item>
+        <item>One more lap is still progress even when motivation is low. Keep going.</item>
+        <item>Your steps are adding up as you build a habit that lasts. Keep going.</item>
+        <item>A calmer pace still moves you as you turn effort into momentum. Keep going.</item>
+        <item>Keep the habit alive without waiting for the perfect moment. Keep going.</item>
+        <item>Your progress is yours and let the minutes add up. Keep going.</item>
+        <item>A short walk is never wasted because small wins become routines. Keep going.</item>
+        <item>You are closer than yesterday while you keep today\'s goal in sight. Keep going.</item>
+        <item>One step at a time even when the day feels busy. Keep going.</item>
+        <item>Keep your rhythm while you give yourself some fresh air. Keep going.</item>
+        <item>Today\'s walk matters because showing up is part of the win. Keep going.</item>
+        <item>Small progress counts as you keep your promise to yourself. Keep going.</item>
+        <item>Your next step is enough with one comfortable step. Keep going.</item>
+        <item>Keep moving forward while you focus only on the next step. Keep going.</item>
+        <item>A little movement goes far because every bit of movement matters. Keep going.</item>
+        <item>Consistency is your superpower because progress is measured in moments too. Keep going.</item>
+        <item>Your body notices every step before you decide you are done. Keep going.</item>
+        <item>You are building momentum and give your body a little kindness. Keep going.</item>
+        <item>Every walk adds up because tomorrow is built from today. Keep going.</item>
+        <item>Make room for movement without needing to be perfect. Keep going.</item>
+        <item>Your future self is cheering and let progress happen naturally. Keep going.</item>
+        <item>Progress does not need to be loud and make a little space for yourself. Keep going.</item>
+        <item>You already started and let your own pace be enough. Keep going.</item>
+    </string-array>
+</resources>
