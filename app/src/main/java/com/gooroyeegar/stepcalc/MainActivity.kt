@@ -113,9 +113,10 @@ class MainActivity : ComponentActivity() {
             alpha = 0.92f
             setPadding(0, dp(8), 0, 0)
         })
+        hero.minimumHeight = dp(132)
         root.addView(hero, LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
-        ).apply { minimumHeight = dp(132) })
+        ))
 
         root.addView(tv("Set up your ideal day", 25f, textColor, true).apply {
             setPadding(dp(4), dp(24), dp(4), dp(6))
@@ -167,9 +168,10 @@ class MainActivity : ComponentActivity() {
         }
         info.addView(tv("1,000–100,000", 15f, cyanDark, true))
         info.addView(tv("  steps/day target", 14f, muted))
+        info.minimumHeight = dp(58)
         root.addView(info, LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
-        ).apply { minimumHeight = dp(58) })
+        ))
 
         scroll.addView(root)
         setContentView(scroll)
@@ -291,9 +293,10 @@ class MainActivity : ComponentActivity() {
         hero.addView(heroSteps)
         heroGoal = tv("Goal: " + String.format(Locale.US, "%,d", goalValue) + " steps", 16f, Color.WHITE)
         hero.addView(heroGoal)
+        hero.minimumHeight = dp(155)
         root.addView(hero, LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
-        ).apply { minimumHeight = dp(155) })
+        ))
 
         root.addView(tv("Your progress", 25f, textColor, true).apply {
             setPadding(dp(4), dp(22), dp(4), dp(12))
