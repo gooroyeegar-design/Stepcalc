@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="setup_subtitle">Votre compagnon de marche quotidien</string>
+    <string name="setup_title">Configurez votre journée idéale</string>
+    <string name="setup_description">Choisissez votre objectif, puis saisissez vos mesures actuelles.</string>
+    <string name="ideal_daily_steps">Pas quotidiens idéaux</string>
+    <string name="current_weight">Poids actuel</string>
+    <string name="height">Taille</string>
+    <string name="hint_steps">10 000</string>
+    <string name="hint_weight">ex. 60</string>
+    <string name="hint_height">ex. 165</string>
+    <string name="get_started">COMMENCER</string>
+    <string name="valid_values">Veuillez saisir des valeurs valides.</string>
+    <string name="target_range">1 000–100 000</string>
+    <string name="steps_per_day_target"> pas/jour</string>
+    <string name="start_moving">C’est parti</string>
+    <string name="step_by_step">Un pas à la fois.</string>
+    <string name="today">AUJOURD’HUI</string>
+    <string name="today_steps">%1$,d pas</string>
+    <string name="goal_steps">Objectif : %1$,d pas</string>
+    <string name="your_progress">Votre progression</string>
+    <string name="steps">Pas</string>
+    <string name="calories">Calories</string>
+    <string name="loss_equivalent">Équiv. perte</string>
+    <string name="target">Objectif</string>
+    <string name="calories_value">%1$.1f kcal</string>
+    <string name="kg_value">%1$.3f kg</string>
+    <string name="live_tracking">SUIVI EN DIRECT</string>
+    <string name="live_tracking_body">Vos pas restent actifs dans la barre de notifications, même lorsque vous utilisez d’autres applications.</string>
+    <string name="no_step_sensor">Cet appareil ne fournit pas de capteur de pas, le suivi en direct est donc indisponible.</string>
+    <string name="permission_needed">L’autorisation de reconnaissance d’activité est nécessaire pour compter vos pas.</string>
+    <string name="notification_channel_live">Pas en direct</string>
+    <string name="notification_channel_live_description">Pas, calories et progression de l’objectif StepCalc</string>
+    <string name="notification_channel_daily">Motivation quotidienne</string>
+    <string name="notification_stats">👟 %1$,d    🔥 %2$.1f</string>
+    <string name="notification_stats_large">👟 %1$,d    🔥 %2$.1f kcal</string>
+    <string name="notification_goal">🎯 %1$.0f%%  •  %2$,d / %3$,d pas</string>
+    <string name="notification_goal_large">🎯 %1$.0f%% sur %2$,d pas</string>
+    <string name="daily_notification_title">StepCalc</string>
+    <string name="daily_nudge">IMPULSION DU JOUR</string>
+    <string name="open_app">Ouvrir StepCalc</string>
+    <string name="open_arrow">→</string>
+    <string name="language_button">🌐 Langue : Français</string>
+    <string name="choose_language">Choisir la langue</string>
+    <string name="cancel">Annuler</string>
+</resources>
