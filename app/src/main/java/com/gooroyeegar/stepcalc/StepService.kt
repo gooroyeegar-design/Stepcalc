@@ -28,13 +28,13 @@ class StepService : Service(), SensorEventListener {
         if (counter != null) {
             detectorMode = false
             prefs.edit().putBoolean("sensor_available", true).apply()
-            sensorManager.registerListener(this, counter, Sensor.SENSOR_DELAY_NORMAL)
+            sensorManager.registerListener(this, counter, SensorManager.SENSOR_DELAY_NORMAL)
         } else {
             val detector = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_DETECTOR)
             if (detector != null) {
                 detectorMode = true
                 prefs.edit().putBoolean("sensor_available", true).apply()
-                sensorManager.registerListener(this, detector, Sensor.SENSOR_DELAY_NORMAL)
+                sensorManager.registerListener(this, detector, SensorManager.SENSOR_DELAY_NORMAL)
             } else {
                 prefs.edit().putBoolean("sensor_available", false).apply()
             }
