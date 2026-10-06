@@ -55,7 +55,8 @@ class MainActivity : ComponentActivity() {
             text = value
             textSize = size
             setTextColor(color)
-            includeFontPadding = false
+            includeFontPadding = true
+            gravity = Gravity.CENTER_VERTICAL
             if (bold) typeface = android.graphics.Typeface.DEFAULT_BOLD
         }
 
@@ -63,10 +64,16 @@ class MainActivity : ComponentActivity() {
         val scroll = ScrollView(this).apply {
             setBackgroundColor(bg)
             isFillViewport = true
+            clipToPadding = false
         }
+
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(20, 22, 20, 28)
+            layoutParams = ScrollView.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
         }
 
         val hero = LinearLayout(this).apply {
@@ -79,12 +86,17 @@ class MainActivity : ComponentActivity() {
             alpha = 0.92f
             setPadding(0, 8, 0, 0)
         })
-        root.addView(hero, LinearLayout.LayoutParams(-1, 132))
+        root.addView(hero, LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, 132
+        ))
 
         root.addView(tv("Set up your ideal day", 25f, textColor, true).apply {
             setPadding(4, 24, 4, 6)
         })
-        root.addView(tv("Choose your target, then enter your current body measurements.", 14f, muted).apply {
+        root.addView(tv(
+            "Choose your target, then enter your current body measurements.",
+            14f, muted
+        ).apply {
             setPadding(4, 0, 4, 18)
         })
 
@@ -100,29 +112,38 @@ class MainActivity : ComponentActivity() {
 
         val start = Button(this).apply {
             text = "GET STARTED"
-            textSize = 16f
+            textSize = 17f
             setTextColor(Color.WHITE)
+            gravity = Gravity.CENTER
             isAllCaps = false
             typeface = android.graphics.Typeface.DEFAULT_BOLD
-            minHeight = 60
-            minimumHeight = 60
+            minHeight = 0
+            minimumHeight = 0
+            includeFontPadding = true
+            setPadding(12, 0, 12, 0)
             background = rounded(cyan, 18f)
             stateListAnimator = null
-            includeFontPadding = false
         }
 
-        card.addView(start, LinearLayout.LayoutParams(-1, 60).apply { topMargin = 8 })
-        root.addView(card, LinearLayout.LayoutParams(-1, -2).apply { bottomMargin = 18 })
+        card.addView(start, LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, 64
+        ).apply { topMargin = 8 })
+        root.addView(card, LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        ).apply { bottomMargin = 18 })
 
         val info = LinearLayout(this).apply {
             orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER_VERTICAL
-            setPadding(16, 16, 16, 16)
+            setPadding(16, 12, 16, 12)
             background = rounded(Color.rgb(224, 247, 250), 18f)
         }
         info.addView(tv("1,000–100,000", 15f, cyanDark, true))
         info.addView(tv("  steps/day target", 14f, muted))
-        root.addView(info, LinearLayout.LayoutParams(-1, 54))
+        root.addView(info, LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, 58
+        ))
 
         setContentView(scroll)
         scroll.addView(root)
@@ -146,7 +167,10 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun field(parent: LinearLayout, label: String, value: String, decimal: Boolean): EditText {
-        parent.addView(tv(label, 13f, muted, true).apply { setPadding(2, 4, 2, 7) })
+        parent.addView(tv(label, 13f, muted, true).apply {
+            setPadding(2, 4, 2, 7)
+        })
+
         val input = EditText(this).apply {
             setText(value)
             hint = when (label) {
@@ -158,13 +182,20 @@ class MainActivity : ComponentActivity() {
             setTextColor(this@MainActivity.textColor)
             setHintTextColor(Color.rgb(148, 163, 184))
             setSingleLine(true)
-            includeFontPadding = false
+            gravity = Gravity.CENTER_VERTICAL
+            includeFontPadding = true
             inputType = InputType.TYPE_CLASS_NUMBER or
                     if (decimal) InputType.TYPE_NUMBER_FLAG_DECIMAL else 0
             setPadding(16, 0, 16, 0)
-            background = rounded(Color.rgb(248, 250, 252), 16f, Color.rgb(203, 213, 225))
+            background = rounded(
+                Color.rgb(248, 250, 252), 16f,
+                Color.rgb(203, 213, 225)
+            )
         }
-        parent.addView(input, LinearLayout.LayoutParams(-1, 58).apply { bottomMargin = 14 })
+
+        parent.addView(input, LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, 58
+        ).apply { bottomMargin = 14 })
         return input
     }
 
@@ -176,13 +207,17 @@ class MainActivity : ComponentActivity() {
             setPadding(32, 32, 32, 32)
             background = cyanGradient()
         }
-        card.addView(tv("Let's get moving", 32f, Color.WHITE, true).apply { gravity = Gravity.CENTER })
+        card.addView(tv("Let's get moving", 32f, Color.WHITE, true).apply {
+            gravity = Gravity.CENTER
+        })
         card.addView(tv("Step by step.", 16f, Color.WHITE).apply {
             gravity = Gravity.CENTER
             alpha = .9f
             setPadding(0, 10, 0, 0)
         })
-        root.addView(card, FrameLayout.LayoutParams(-1, 190).apply {
+        root.addView(card, FrameLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, 190
+        ).apply {
             leftMargin = 20
             rightMargin = 20
             gravity = Gravity.CENTER
@@ -191,9 +226,9 @@ class MainActivity : ComponentActivity() {
         card.scaleX = .82f
         card.scaleY = .82f
         card.alpha = 0f
-        card.animate().scaleX(1f).scaleY(1f).alpha(1f).setDuration(650).withEndAction {
-            requestPermissionsAndStart()
-        }.start()
+        card.animate().scaleX(1f).scaleY(1f).alpha(1f).setDuration(650)
+            .withEndAction { requestPermissionsAndStart() }
+            .start()
     }
 
     private fun requestPermissionsAndStart() {
@@ -203,10 +238,19 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun showDashboard() {
-        val scroll = ScrollView(this).apply { setBackgroundColor(bg) }
+        val scroll = ScrollView(this).apply {
+            setBackgroundColor(bg)
+            isFillViewport = true
+            clipToPadding = false
+        }
+
         val root = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(20, 22, 20, 28)
+            layoutParams = ScrollView.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
         }
 
         val goalValue = prefs.getInt("goal", 10000)
@@ -216,20 +260,52 @@ class MainActivity : ComponentActivity() {
             background = cyanGradient()
         }
         hero.addView(tv("TODAY", 14f, Color.WHITE, true))
-        hero.addView(tv("0 steps", 38f, Color.WHITE, true).apply { setPadding(0, 7, 0, 2) })
+        hero.addView(tv("0 steps", 38f, Color.WHITE, true).apply {
+            setPadding(0, 7, 0, 2)
+        })
         hero.addView(tv("Goal: " + String.format("%,d", goalValue) + " steps", 16f, Color.WHITE))
-        root.addView(hero, LinearLayout.LayoutParams(-1, 155))
+        root.addView(hero, LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, 155
+        ))
 
-        root.addView(tv("Your progress", 25f, textColor, true).apply { setPadding(4, 22, 4, 12) })
+        root.addView(tv("Your progress", 25f, textColor, true).apply {
+            setPadding(4, 22, 4, 12)
+        })
 
-        val grid = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
-        val row1 = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
-        row1.addView(statCard("👟", "Steps", "0"), LinearLayout.LayoutParams(0, 128, 1f).apply { rightMargin = 7 })
-        row1.addView(statCard("🔥", "Calories", "0 kcal"), LinearLayout.LayoutParams(0, 128, 1f).apply { leftMargin = 7 })
+        val grid = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+        }
+
+        val row1 = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+        }
+        row1.addView(
+            statCard("👟", "Steps", "0"),
+            LinearLayout.LayoutParams(0, 128, 1f).apply { rightMargin = 7 }
+        )
+        row1.addView(
+            statCard("🔥", "Calories", "0 kcal"),
+            LinearLayout.LayoutParams(0, 128, 1f).apply { leftMargin = 7 }
+        )
         grid.addView(row1)
-        val row2 = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
-        row2.addView(statCard("⚖", "Loss eq.", "0.00 kg"), LinearLayout.LayoutParams(0, 128, 1f).apply { rightMargin = 7; topMargin = 12 })
-        row2.addView(statCard("🎯", "Target", String.format("%,d", goalValue)), LinearLayout.LayoutParams(0, 128, 1f).apply { leftMargin = 7; topMargin = 12 })
+
+        val row2 = LinearLayout(this).apply {
+            orientation = LinearLayout.HORIZONTAL
+        }
+        row2.addView(
+            statCard("⚖", "Loss eq.", "0.00 kg"),
+            LinearLayout.LayoutParams(0, 128, 1f).apply {
+                rightMargin = 7
+                topMargin = 12
+            }
+        )
+        row2.addView(
+            statCard("🎯", "Target", String.format("%,d", goalValue)),
+            LinearLayout.LayoutParams(0, 128, 1f).apply {
+                leftMargin = 7
+                topMargin = 12
+            }
+        )
         grid.addView(row2)
         root.addView(grid)
 
@@ -239,25 +315,40 @@ class MainActivity : ComponentActivity() {
             background = rounded(Color.WHITE, 20f, Color.rgb(207, 238, 243))
         }
         note.addView(tv("LIVE TRACKING", 13f, cyanDark, true))
-        note.addView(tv("Your step counter stays active through the notification bar.", 15f, textColor).apply {
+        note.addView(tv(
+            "Your step counter stays active through the notification bar.",
+            15f, textColor
+        ).apply {
             setPadding(0, 7, 0, 0)
         })
-        root.addView(note, LinearLayout.LayoutParams(-1, 88).apply { topMargin = 14 })
+        root.addView(note, LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT, 88
+        ).apply { topMargin = 14 })
 
         setContentView(scroll)
         scroll.addView(root)
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_GRANTED)
-            ContextCompat.startForegroundService(this, Intent(this, StepService::class.java))
+
+        if (ContextCompat.checkSelfPermission(
+                this, Manifest.permission.ACTIVITY_RECOGNITION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+            ContextCompat.startForegroundService(
+                this, Intent(this, StepService::class.java)
+            )
+        }
     }
 
     private fun statCard(icon: String, label: String, value: String): View {
         val box = LinearLayout(this).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(16, 14, 16, 12)
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(16, 12, 16, 12)
             background = rounded(Color.WHITE, 20f, Color.rgb(226, 232, 240))
         }
         box.addView(tv(icon, 21f, cyanDark))
-        box.addView(tv(label, 13f, muted, true).apply { setPadding(0, 6, 0, 2) })
+        box.addView(tv(label, 13f, muted, true).apply {
+            setPadding(0, 5, 0, 1)
+        })
         box.addView(tv(value, 21f, textColor, true))
         return box
     }
