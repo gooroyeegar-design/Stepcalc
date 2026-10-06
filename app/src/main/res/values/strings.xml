@@ -14,7 +14,7 @@
     <string name="valid_values">Please enter valid values.</string>
     <string name="target_range">1,000–100,000</string>
     <string name="steps_per_day_target"> steps/day target</string>
-    <string name="start_moving">Let\\'s get moving</string>
+    <string name="start_moving">Let\'s get moving</string>
     <string name="step_by_step">Step by step.</string>
     <string name="today">TODAY</string>
     <string name="today_steps">%1$,d steps</string>
@@ -38,7 +38,7 @@
     <string name="notification_goal">🎯 %1$.0f%%  •  %2$,d / %3$,d steps</string>
     <string name="notification_goal_large">🎯 %1$.0f%% of %2$,d steps</string>
     <string name="daily_notification_title">StepCalc</string>
-    <string name="daily_nudge">TODAY\\'S NUDGE</string>
+    <string name="daily_nudge">TODAY\'S NUDGE</string>
     <string name="open_app">Open StepCalc</string>
     <string name="open_arrow">→</string>
     <string name="icon_steps">👟</string>
