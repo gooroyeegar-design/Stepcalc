@@ -243,12 +243,12 @@ class MainActivity : ComponentActivity() {
             alpha = .9f
             setPadding(0, dp(10), 0, 0)
         })
+        card.minimumHeight = dp(190)
         root.addView(card, FrameLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT
         ).apply {
             leftMargin = dp(20)
             rightMargin = dp(20)
-            minimumHeight = dp(190)
             gravity = Gravity.CENTER
         })
         setContentView(root)
