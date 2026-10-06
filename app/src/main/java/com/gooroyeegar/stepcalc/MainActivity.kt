@@ -21,17 +21,20 @@ class MainActivity : ComponentActivity() {
     private lateinit var height: EditText
     private val prefs by lazy { getSharedPreferences("stepcalc", MODE_PRIVATE) }
 
-    private val cyan get() = ContextCompat.getColor(this, R.color.stepcalc_cyan)
-    private val cyanDark get() = ContextCompat.getColor(this, R.color.stepcalc_cyan_dark)
-    private val bg get() = ContextCompat.getColor(this, R.color.stepcalc_background)
-    private val surface get() = ContextCompat.getColor(this, R.color.stepcalc_surface)
-    private val fieldBg get() = ContextCompat.getColor(this, R.color.stepcalc_field)
-    private val textColor get() = ContextCompat.getColor(this, R.color.stepcalc_text)
-    private val muted get() = ContextCompat.getColor(this, R.color.stepcalc_muted)
-    private val border get() = ContextCompat.getColor(this, R.color.stepcalc_border)
-    private val infoBg get() = ContextCompat.getColor(this, R.color.stepcalc_info)
-    private val infoBorder get() = ContextCompat.getColor(this, R.color.stepcalc_info_border)
-    private val hintColor get() = ContextCompat.getColor(this, R.color.stepcalc_hint)
+    private fun themeColor(light: String, dark: String): Int =
+        Color.parseColor(if (isDarkMode()) dark else light)
+
+    private val cyan get() = themeColor("#06B6D4", "#22D3EE")
+    private val cyanDark get() = themeColor("#0891A8", "#67E8F9")
+    private val bg get() = themeColor("#EFFCFE", "#071419")
+    private val surface get() = themeColor("#FFFFFF", "#10242A")
+    private val fieldBg get() = themeColor("#F8FAFC", "#132A31")
+    private val textColor get() = themeColor("#0F172A", "#F2FBFC")
+    private val muted get() = themeColor("#64748B", "#A7BCC1")
+    private val border get() = themeColor("#E2E8F0", "#29434A")
+    private val infoBg get() = themeColor("#E0F7FA", "#12353D")
+    private val infoBorder get() = themeColor("#CFEFF3", "#25515A")
+    private val hintColor get() = themeColor("#94A3B8", "#78929A")
 
     private var heroSteps: TextView? = null
     private var heroGoal: TextView? = null
@@ -104,9 +107,9 @@ class MainActivity : ComponentActivity() {
         GradientDrawable(
             GradientDrawable.Orientation.TL_BR,
             intArrayOf(
-                ContextCompat.getColor(this, R.color.stepcalc_cyan_bright),
+                themeColor("#22D3EE", "#67E8F9"),
                 cyan,
-                ContextCompat.getColor(this, R.color.stepcalc_cyan_dark)
+                cyanDark
             )
         ).apply { cornerRadius = dp(28).toFloat() }
 
