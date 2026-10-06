@@ -125,7 +125,7 @@ class StepService : Service(), SensorEventListener {
             .setSilent(true)
             .setCategory(NotificationCompat.CATEGORY_WORKOUT)
             .setShowWhen(false)
-            .setColor(0xFFFF8A3D)
+            .setColor(0xFFFF8A3D.toInt())
             .build()
     }
 

@@ -67,10 +67,10 @@ class MainActivity : ComponentActivity() {
 
     private fun dp(value: Int): Int = (value * resources.displayMetrics.density + 0.5f).toInt()
 
-    private fun rounded(color: Int, radius: Float = 20f, stroke: Int? = null): GradientDrawable =
+    private fun rounded(color: Int, radius: Int = 20, stroke: Int? = null): GradientDrawable =
         GradientDrawable().apply {
             setColor(color)
-            cornerRadius = dp(radius.toInt()).toFloat()
+            cornerRadius = dp(radius).toFloat()
             if (stroke != null) setStroke(dp(1), stroke)
         }
 
