@@ -12,7 +12,6 @@ import android.widget.*
 import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
-import kotlin.math.roundToInt
 
 class MainActivity : ComponentActivity() {
     private lateinit var goal: EditText
@@ -23,7 +22,7 @@ class MainActivity : ComponentActivity() {
     private val cyan = Color.rgb(6, 182, 212)
     private val cyanDark = Color.rgb(8, 145, 168)
     private val bg = Color.rgb(239, 252, 254)
-    private val text = Color.rgb(15, 23, 42)
+    private val textColor = Color.rgb(15, 23, 42)
     private val muted = Color.rgb(100, 116, 139)
 
     private val permissionLauncher = registerForActivityResult(
@@ -48,10 +47,10 @@ class MainActivity : ComponentActivity() {
     private fun cyanGradient(): GradientDrawable =
         GradientDrawable(
             GradientDrawable.Orientation.TL_BR,
-            intArrayOf(Color.rgb(34,211,238), cyan, Color.rgb(14,165,185))
+            intArrayOf(Color.rgb(34, 211, 238), cyan, Color.rgb(14, 165, 185))
         ).apply { cornerRadius = 28f }
 
-    private fun tv(value: String, size: Float, color: Int = text, bold: Boolean = false): TextView =
+    private fun tv(value: String, size: Float, color: Int = textColor, bold: Boolean = false): TextView =
         TextView(this).apply {
             text = value
             textSize = size
@@ -82,7 +81,7 @@ class MainActivity : ComponentActivity() {
         })
         root.addView(hero, LinearLayout.LayoutParams(-1, 132))
 
-        root.addView(tv("Set up your ideal day", 25f, text, true).apply {
+        root.addView(tv("Set up your ideal day", 25f, textColor, true).apply {
             setPadding(4, 24, 4, 6)
         })
         root.addView(tv("Choose your target, then enter your current body measurements.", 14f, muted).apply {
@@ -156,12 +155,12 @@ class MainActivity : ComponentActivity() {
                 else -> "e.g. 165"
             }
             textSize = 18f
-            setTextColor(text)
+            setTextColor(this@MainActivity.textColor)
             setHintTextColor(Color.rgb(148, 163, 184))
             setSingleLine(true)
             includeFontPadding = false
             inputType = InputType.TYPE_CLASS_NUMBER or
-                    if (decimal) InputType.TYPE_NUMBER_FLAG_DECIMAL else InputType.TYPE_NUMBER_FLAG_NONE
+                    if (decimal) InputType.TYPE_NUMBER_FLAG_DECIMAL else 0
             setPadding(16, 0, 16, 0)
             background = rounded(Color.rgb(248, 250, 252), 16f, Color.rgb(203, 213, 225))
         }
@@ -178,12 +177,20 @@ class MainActivity : ComponentActivity() {
             background = cyanGradient()
         }
         card.addView(tv("Let's get moving", 32f, Color.WHITE, true).apply { gravity = Gravity.CENTER })
-        card.addView(tv("Step by step.", 16f, Color.WHITE).apply { gravity = Gravity.CENTER; alpha = .9f; setPadding(0, 10, 0, 0) })
+        card.addView(tv("Step by step.", 16f, Color.WHITE).apply {
+            gravity = Gravity.CENTER
+            alpha = .9f
+            setPadding(0, 10, 0, 0)
+        })
         root.addView(card, FrameLayout.LayoutParams(-1, 190).apply {
-            leftMargin = 20; rightMargin = 20; gravity = Gravity.CENTER
+            leftMargin = 20
+            rightMargin = 20
+            gravity = Gravity.CENTER
         })
         setContentView(root)
-        card.scaleX = .82f; card.scaleY = .82f; card.alpha = 0f
+        card.scaleX = .82f
+        card.scaleY = .82f
+        card.alpha = 0f
         card.animate().scaleX(1f).scaleY(1f).alpha(1f).setDuration(650).withEndAction {
             requestPermissionsAndStart()
         }.start()
@@ -213,7 +220,7 @@ class MainActivity : ComponentActivity() {
         hero.addView(tv("Goal: " + String.format("%,d", goalValue) + " steps", 16f, Color.WHITE))
         root.addView(hero, LinearLayout.LayoutParams(-1, 155))
 
-        root.addView(tv("Your progress", 25f, text, true).apply { setPadding(4, 22, 4, 12) })
+        root.addView(tv("Your progress", 25f, textColor, true).apply { setPadding(4, 22, 4, 12) })
 
         val grid = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         val row1 = LinearLayout(this).apply { orientation = LinearLayout.HORIZONTAL }
@@ -232,7 +239,9 @@ class MainActivity : ComponentActivity() {
             background = rounded(Color.WHITE, 20f, Color.rgb(207, 238, 243))
         }
         note.addView(tv("LIVE TRACKING", 13f, cyanDark, true))
-        note.addView(tv("Your step counter stays active through the notification bar.", 15f, text).apply { setPadding(0, 7, 0, 0) })
+        note.addView(tv("Your step counter stays active through the notification bar.", 15f, textColor).apply {
+            setPadding(0, 7, 0, 0)
+        })
         root.addView(note, LinearLayout.LayoutParams(-1, 88).apply { topMargin = 14 })
 
         setContentView(scroll)
@@ -249,7 +258,7 @@ class MainActivity : ComponentActivity() {
         }
         box.addView(tv(icon, 21f, cyanDark))
         box.addView(tv(label, 13f, muted, true).apply { setPadding(0, 6, 0, 2) })
-        box.addView(tv(value, 21f, text, true))
+        box.addView(tv(value, 21f, textColor, true))
         return box
     }
 }
