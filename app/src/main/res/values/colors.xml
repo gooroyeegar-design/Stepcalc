@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="stepcalc_cyan">#06B6D4</color>
+    <color name="stepcalc_cyan_dark">#0891A8</color>
+    <color name="stepcalc_cyan_bright">#22D3EE</color>
+    <color name="stepcalc_background">#EFFCFE</color>
+    <color name="stepcalc_surface">#FFFFFF</color>
+    <color name="stepcalc_field">#F8FAFC</color>
+    <color name="stepcalc_text">#0F172A</color>
+    <color name="stepcalc_muted">#64748B</color>
+    <color name="stepcalc_border">#E2E8F0</color>
+    <color name="stepcalc_info">#E0F7FA</color>
+    <color name="stepcalc_info_border">#CFEef3</color>
+    <color name="stepcalc_hint">#94A3B8</color>
+</resources>
