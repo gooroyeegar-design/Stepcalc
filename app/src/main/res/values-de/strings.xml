@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="setup_subtitle">Dein täglicher Begleiter fürs Gehen</string>
+    <string name="setup_title">Deinen idealen Tag einrichten</string>
+    <string name="setup_description">Wähle dein Ziel und gib danach deine aktuellen Körperwerte ein.</string>
+    <string name="ideal_daily_steps">Ideale tägliche Schritte</string>
+    <string name="current_weight">Aktuelles Gewicht</string>
+    <string name="height">Größe</string>
+    <string name="hint_steps">10.000</string>
+    <string name="hint_weight">z. B. 60</string>
+    <string name="hint_height">z. B. 165</string>
+    <string name="get_started">STARTEN</string>
+    <string name="valid_values">Bitte gültige Werte eingeben.</string>
+    <string name="target_range">1.000–100.000</string>
+    <string name="steps_per_day_target"> Schritte/Tag</string>
+    <string name="start_moving">Los geht’s</string>
+    <string name="step_by_step">Schritt für Schritt.</string>
+    <string name="today">HEUTE</string>
+    <string name="today_steps">%1$,d Schritte</string>
+    <string name="goal_steps">Ziel: %1$,d Schritte</string>
+    <string name="your_progress">Dein Fortschritt</string>
+    <string name="steps">Schritte</string>
+    <string name="calories">Kalorien</string>
+    <string name="loss_equivalent">Verlustäquiv.</string>
+    <string name="target">Ziel</string>
+    <string name="calories_value">%1$.1f kcal</string>
+    <string name="kg_value">%1$.3f kg</string>
+    <string name="live_tracking">LIVE-TRACKING</string>
+    <string name="live_tracking_body">Deine Schritte bleiben über die Benachrichtigungsleiste aktiv, auch während du andere Apps nutzt.</string>
+    <string name="no_step_sensor">Dieses Gerät hat keinen Schrittzähler-Sensor. Live-Tracking ist daher nicht verfügbar.</string>
+    <string name="permission_needed">Die Aktivitätserkennung ist erforderlich, um deine Schritte zu zählen.</string>
+    <string name="notification_channel_live">Live-Schritte</string>
+    <string name="notification_channel_live_description">Live-Schritte, Kalorien und Zielfortschritt von StepCalc</string>
+    <string name="notification_channel_daily">Tägliche Motivation</string>
+    <string name="notification_stats">👟 %1$,d    🔥 %2$.1f</string>
+    <string name="notification_stats_large">👟 %1$,d    🔥 %2$.1f kcal</string>
+    <string name="notification_goal">🎯 %1$.0f%%  •  %2$,d / %3$,d Schritte</string>
+    <string name="notification_goal_large">🎯 %1$.0f%% von %2$,d Schritten</string>
+    <string name="daily_notification_title">StepCalc</string>
+    <string name="daily_nudge">IMPULS DES TAGES</string>
+    <string name="open_app">StepCalc öffnen</string>
+    <string name="open_arrow">→</string>
+    <string name="language_button">🌐 Sprache: Deutsch</string>
+    <string name="choose_language">Sprache wählen</string>
+    <string name="cancel">Abbrechen</string>
+</resources>
